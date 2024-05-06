@@ -1,26 +1,31 @@
+// src/App.tsx
+
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Page1 from './Page1';
+import Page2 from './Page2';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header >
+          <nav>
+            <div style={{display:"inline"}}>
+              <Link to="/page1">Page1</Link>
+              </div>&nbsp;
+              <div  style={{display:"inline"}}>
+              <Link to="/page2">Page2</Link>
+              </div>
+          </nav>
+          <Routes>
+            <Route path="/page1"  element={<Page1/>} />
+            <Route path="/page2"  element={<Page2/>} />
+          </Routes>
+        </header>
+      </div>
+    </Router>
   );
-}
-
+};
 export default App;

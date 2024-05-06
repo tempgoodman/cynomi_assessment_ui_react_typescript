@@ -6,7 +6,6 @@ import moment from 'moment';
 const Page2: React.FC = () => {
   const [name,setName] = useState<string>('');
   const [tableData, setTableData] = useState<any[]>([]);
-  const [barChartData, setBarChartData] = useState<any[]>([]);
   const [option, setOption] = useState<EChartsOption>({});
 
   useEffect(() => {
@@ -19,7 +18,6 @@ const Page2: React.FC = () => {
       fetch(`http://localhost:3001/sleepduration/${name}`)
       .then((response) => response.json())
       .then((data) => {
-        setBarChartData(data)
         setOption({
           xAxis: {
             type: "category",

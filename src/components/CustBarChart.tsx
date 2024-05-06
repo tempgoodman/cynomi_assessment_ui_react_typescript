@@ -43,20 +43,16 @@ export interface ReactEChartsProps {
   settings?: SetOptionOpts;
 }
 
-let currentIndex = -1;
-
 export default function CustBarChart({
   option,
   style
 }: ReactEChartsProps): JSX.Element {
   const chartRef = useRef<HTMLDivElement | null>(null);
-  const [chartInitialized, setChartInitialized] = useState(false);
 
   useEffect(() => {
     let chart: ECharts | undefined;
     if (chartRef.current !== null) {
       chart = init(chartRef.current as HTMLDivElement);
-      setChartInitialized(true);
     }
     function resizeChart() {
       chart?.resize();
